@@ -23,6 +23,10 @@ export default {
             babelrc: true
           }
         },
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
       }
     ]
   },

@@ -1,21 +1,29 @@
 import React from "react";
-import { render } from "react-dom";
+import ReactDOM from "react-dom";
+import { createStore, combineReducers } from "redux";
+import { Provider } from "react-redux";
+import App from "./containers/app";
+import reducer from './reducers';
+import css from './styles/app.css';
+import { Route, Router, browserHistory } from 'react-router-dom';
+import { syncHistoryWithStore, routerReducer } from "react-router-redux";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { message: 'somthing' };
-  }
-  onChange(e) {
-    this.setState( { message: e.target.value} )
-  }
 
-  render () {
-    return <div>
-        <input type="text" onChange={this.onChange.bind(this) } />
-        <p>{ this.state.message } </p>
-      </div>;
-  }
-}
+const store = createStore(
+  combineReducers({
+    reducer: reducer,
+    routing: routerReducer,
+  })
+);
 
-render(<App/>, document.getElementById('app'));
+// const history = syncHistoryWithStore(browserHistory, store);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={App}>
+      </Route>
+    </Router>
+  </Provider>,
+  document.getElementById('app')
+);

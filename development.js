@@ -41,5 +41,8 @@ export default {
       filename: 'index.html'
     })
   ],
-  mode: "development"
+  mode: "development",
+  devServer: {
+    host: '127.0.0.1'
+  }
 }

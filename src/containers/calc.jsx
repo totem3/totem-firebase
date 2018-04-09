@@ -3,19 +3,20 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as MathActions from "../actions";
 import { Route, Link } from "react-router-dom";
+import Calculator from "../components/calculator";
 
-class App extends React.Component {
+class Calc extends React.Component {
     render() {
-        const { value, dispatch } = this.props;
+        let { value, dispatch } = this.props;
 
+        console.log(value);
         const actions = bindActionCreators(MathActions, dispatch);
+        value = value.reducer.value;
         return (
             <div>
                 <h1>Totem</h1>
                 <div>
-                    <nav>
-                        <Link to="/calc">Calc</Link>
-                    </nav>
+                    <Calculator actions={actions} value={value}/>
                 </div>
             </div>
         );
@@ -24,4 +25,4 @@ class App extends React.Component {
 
 export default connect(
     state => ({ value: state }),
-)(App);
+)(Calc);

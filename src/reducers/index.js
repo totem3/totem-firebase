@@ -1,6 +1,10 @@
 import * as types from "../constants/actionTypes";
 
-export default function(state, action) {
+const initialState = {
+    value: 1
+};
+
+export default function(state = initialState, action) {
     switch (action.type) {
     case types.ADD_ONE:
         return state + 1;
@@ -9,10 +13,6 @@ export default function(state, action) {
     case types.DOUBLE_VALUE:
         return state * 2;
     default:
-        if (typeof(state) === "undefined") {
-            return 1;
-        } else {
-            return state;
-        }
+        return state;
     }
 }

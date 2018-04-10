@@ -4,6 +4,8 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import App from "./containers/app";
 import Calc from "./containers/calc";
+import Memos from "./containers/memos";
+import Memo from "./containers/memo";
 import reducer from './reducers';
 import css from './styles/app.css';
 
@@ -31,6 +33,7 @@ ReactDOM.render(
         <Route exact path="/" component={App}>
         </Route>
         <Route path="/calc" component={Calc} />
+        <Route path="/memos" component={Memos} />
       </div>
     </ConnectedRouter>
   </Provider>,

@@ -1,3 +1,30 @@
-body {
+html, body, h1 {
+    margin: 0;
+    padding: 0;
     color: #7f7f7f;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.border {
+    border-top: solid 1px rgba(0, 0, 0, .1);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.header {
+    padding: 8px;
+    text-align: center;
+}
+
+.content {
+    padding: 8px;
+}
+
+.footer {
+    margin: 10px 0;
+    padding: 8px;
+}
+
+.copyright {
+    color: #7f7f7f;
+    text-decoration: none;
 }

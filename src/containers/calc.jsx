@@ -1,4 +1,5 @@
 import React from "react";
+import {Layout} from "./app"
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as MathActions from "../actions";
@@ -9,20 +10,20 @@ class Calc extends React.Component {
     render() {
         let { value, dispatch } = this.props;
 
-        console.log(value);
         const actions = bindActionCreators(MathActions, dispatch);
-        value = value.calc.value;
         return (
-            <div>
-                <h1>Totem</h1>
+            <Layout>
                 <div>
-                    <Calculator actions={actions} value={value}/>
+                    <Calculator actions={actions} value={value} />
+                    <div>
+                        original source: <a href="https://www.pshrmn.com/tutorials/react/react-redux/" target="_blank">https://www.pshrmn.com/tutorials/react/react-redux/</a>
+                    </div>
                 </div>
-            </div>
+            </Layout>
         );
     }
 }
 
 export default connect(
-    state => ({ value: state }),
+    state => ({value: state.calc}),
 )(Calc);

@@ -43,6 +43,7 @@ export default {
   ],
   mode: "development",
   devServer: {
-    host: '127.0.0.1'
+    host: '127.0.0.1',
+    historyApiFallback: true
   }
 }

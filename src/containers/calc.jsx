@@ -11,7 +11,7 @@ class Calc extends React.Component {
 
         console.log(value);
         const actions = bindActionCreators(MathActions, dispatch);
-        value = value.reducer.value;
+        value = value.calc.value;
         return (
             <div>
                 <h1>Totem</h1>

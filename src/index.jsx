@@ -18,7 +18,7 @@ const middleware = routerMiddleware(history);
 
 const store = createStore(
   combineReducers({
-    reducer: reducer,
+    calc: reducer,
     routing: routerReducer,
   }),
   applyMiddleware(middleware)

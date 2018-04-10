@@ -7,11 +7,11 @@ const initialState = {
 export default function(state = initialState, action) {
     switch (action.type) {
     case types.ADD_ONE:
-        return state + 1;
+        return {value: state.value + 1};
     case types.SUBTRACT_ONE:
-        return state - 1;
+        return {value: state.value - 1};
     case types.DOUBLE_VALUE:
-        return state * 2;
+        return {value: state.value * 2};
     default:
         return state;
     }
